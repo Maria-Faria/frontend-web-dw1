@@ -1,10 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
         <title>First Web Page</title>
+
+        <!-- CSS externo -->
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- CSS interno (funciona fora do header tbm) -->
+        <style>
+            h1 {
+                color: #8fd6ca;
+            }
+
+            div {
+                width: 100%;
+                display: flex;
+                height: 70px;
+                background-color: #024521;
+                justify-content: space-between;
+            }
+
+            #logo {
+                width: 100px;
+                height: 70px;
+                background: #852145;
+            }
+
+            #menu {
+                width: 300px;
+                height: 70px;
+                background: #65f5ff;
+                /*margin: 0 0 0 auto;*/ /*margin-left: auto*/
+            }
+
+            #content {
+                height: 500px;
+                background: #529874;
+                margin: 70px 0 0 0;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            #column1 {
+                width: 5px;
+                height: 50px;
+                background: #214785;
+            }
+
+            #text-box {
+                width: 10px;
+                height: 50px;
+                background: #d82e2e;
+            }
+
+        </style>
+
     </head>    
 
     <body>
-        <h1>Hello, World HTML!</h1>
+
+        <div>
+            <div id="logo"></div>
+
+            <div id="menu"></div>
+        </div>
+
+        <div id="content">
+            <div id="column1">
+
+            </div>
+
+            <div id="text-box">
+
+            </div>
+        </div>
+
+        <!-- Tags de título -->
+        <h1>Hello, World HTML!</h1> 
+
+        <!-- CSS inline (só pra esse elemento) -->
+        <h1 style="color: #1e6fd8;">Hello, World HTML!</h1> <!-- CSS inline (só pra esse elemento) -->
+        
+        <h2>Hello, World HTML!</h2>
+        <h3>Hello, World HTML!</h3>
+        <h4>Hello, World HTML!</h4>
+        <h5>Hello, World HTML!</h5>
+        <h6>Hello, World HTML!</h6>
+
+        <!-- Parágrafos -->
+        <p><span>HTML</span> (abreviação para a expressão inglesa HyperText <strong>Markup</strong> Language, que significa: "Linguagem de Marcação de Hipertexto") é uma linguagem de marcação utilizada na construção de páginas na Web. Documentos HTML podem ser interpretados por navegadores. A tecnologia é fruto da junção entre os padrões HyTime e SGML.</p>
+        <p>HyTime é um padrão para a representação estruturada de <b>hipermídia</b> e conteúdo baseado em tempo. Um documento é visto como um conjunto de eventos concorrentes dependentes de tempo (como áudio, vídeo, etc.), conectados por hiperligações (em inglês: hyperlink e link). O padrão é independente de outros padrões de processamento de texto em geral.</p>
+        <p><i>SGML</i> é um padrão de <mark>formatação de textos.</mark> Não foi desenvolvido para hipertexto, mas tornou-se conveniente para transformar documentos em hiper-objetos e para descrever as ligações.</p>
     </body>
 </html>
