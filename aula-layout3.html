@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Layout 3</title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            /*HEADER*/
+            #header {
+                height: 100px;
+                background: #3c067a;
+                display: flex;
+                align-items: center;
+            }
+
+            #icon {
+                height: 50px;
+                width: 150px;
+                background: #6b0ed6;
+                margin: 0 0 0 30px;
+            }
+
+            /*MAIN*/
+            #main {
+                height: 700px;
+                background: #8c53ce;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            .text-bar {
+                width: 300px;
+                height: 80%;
+                background: #3c067a;
+                margin: 0 30px 0 0;
+            }
+
+            #text-center {
+                width: 800px;
+                height: 80%;
+                background: #3c067a;
+                margin: 0 30px 0 0;
+            }
+
+            #footer {
+                height: 205px;
+                background: #3c067a;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #logo {
+                height: 50px;
+                width: 150px;
+                background: #6b0ed6;
+                margin: 0 0 0 30px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div id="header">
+            <div id="icon"></div>
+        </div>
+
+        <div id="main">
+            <div class="text-bar"></div>
+            <div id="text-center"></div>
+            <div class="text-bar"></div>
+        </div>
+
+        <div id="footer">
+            <div id="logo"></div>
+        </div>
+    </body>
+</html>
