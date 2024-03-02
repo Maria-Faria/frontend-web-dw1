@@ -4,13 +4,169 @@
         <title>Layout 4</title>
 
         <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            #header {
+                width: 100%;
+                height: 100px;
+                background: #264633;
+                position: fixed;
+            }
+
+            /*PARTE 1*/
+            #container1 {
+                width: 100%;
+                height: 900px;
+                background: #3b7452;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            .text {
+                width: 30%;
+                height: 30%;
+            }
+
+            p {
+                font-size: 18px;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                color: white;
+            }
+
+            .image-text {
+                width: 40%;
+                height: 45%;
+                background: #264633;
+            }
+
+            /*PARTE 2*/
+            #container2 {
+                width: 100%;
+                height: 900px;
+                background: #67be89;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            .item {
+                width: 25%;
+                height: 30%;
+                background: #3b7452;
+            }
+
+            /*PARTE 3*/
+            #container3 {
+                width: 100%;
+                height: 900px;
+                background: #55ab89;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            .icon {
+                width: 15%;
+                height: 25%;
+                background: #264633;
+                border-radius: 100%;
+                margin: 0 0 0 20px;
+            }
+
+            .icon-text {
+                width: 28%;
+                height: 30%;
+                margin: 0 30px 0 0;
+                display: flex;
+                align-items: center;
+            }
+
+            /*PARTE 4*/
+            #container4 {
+                width: 100%;
+                height: 900px;
+                background: #3f715d;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            /*FOOTER*/
+            #footer {
+                width: 100%;
+                height: 200px;
+                background: #264633;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
 
         </style>
     </head>
 
     <body>
-        <div id="header">
+        <div id="header"></div>
 
+        <div id="container1">
+            <div class="text">
+                <p>Doc, she's beautiful. She's crazy about me. Look at this, look what she wrote me, Doc. That says it all. 
+                    Doc, you're my only hope. You guys, take him in back and I'll be right there. Well c'mon, this ain't no peep show. 
+                    That's Strickland. Jesus, didn't that guy ever have hair? Okay, alright, Saturday is good, Saturday's good, I could 
+                    spend a week in 1955. I could hang out, you could show me around. No, it was The Enchantment Under The Sea Dance. 
+                    Our first date. It was the night of that terrible thunderstorm, remember George? Your father kissed me for the very 
+                    first time on that dance floor. It was then I realized I was going to spend the rest of my life with him.</p>
+            </div>
+
+            <div class="image-text"></div>
+        </div>
+
+        <div id="container2">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        
+        <div id="container3">
+            <div class="icon"></div>
+            <div class="icon-text">
+                <p>Oh, what I meant to day was- Right, I got it. Go. Go. George, buddy. remember that girl I introduced you to, Lorraine. 
+                    What are you writing? That's a Florence Nightingale effect. It happens in hospitals when nurses fall in love with 
+                    their patients. Go to it, kid.
+                </p>
+            </div>
+            
+            <div class="icon"></div>
+            <div class="icon-text">
+                <p>Precisely. I do understand. If I know too much about my own future I could endanger my own existence, just as you 
+                    endangered yours. Will you take care of that? I'd like you to meet my good friend George McFly. Um, yeah, I'm on my 
+                    way.</p>
+            </div>
+        </div>
+        
+        <div id="container4">
+            <div class="image-text"></div>
+
+            <div class="text">
+                <p>Hey Dad, George, hey, you on the bike. The way I see it, if you're gonna build a time machine into a car why not do 
+                    it with some style. Besides, the stainless, steel construction made the flux dispersal- look out. Good, you could 
+                    start by sweeping the floor. Well, bring her along. This concerns her too. My god, do you know what this means? 
+                    It means that this damn thing doesn't work at all.</p>
+
+                <p>Not a word, not a word, not a word now. Quiet, uh, donations, you want me to make a donation to the coast guard youth 
+                    auxiliary? Who the hell is John F. Kennedy? Well, bring her along. This concerns her too. I got enough practical 
+                    jokes for one evening. Good night, future boy. Well looky what we have here. No no no, you're staying right here 
+                    with me.</p>
+            </div>
+        </div>
+        
+        <div id="footer">
+            <div id="text-footer">
+                <p>Desenvolvido por Maria Eduarda de Faria</p>
+            </div>
         </div>
     </body>
 </html>
