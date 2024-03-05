@@ -4,7 +4,23 @@ html, body {
 }
 
 header {
-    width: 100%;
+    width: calc(100% - 32px); /*corrigir problema do padding vazando*/
     height: 70px;
     background: #00008B;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.logotipo {
+    width: 200px;
+    height: 45px;
+    background: #1E90FF;
+}
+
+nav {
+    width: 500px;
+    height: 45px;
+    background: #1E90FF;
 }
