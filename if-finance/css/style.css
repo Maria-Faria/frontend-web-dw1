@@ -1,16 +1,19 @@
 html, body {
     margin: 0;
     padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #2c2c2c;
 }
 
-header {
+body > header {
     width: calc(100% - 32px); /*corrigir problema do padding vazando*/
-    height: 70px;
-    background: #00008B;
+    height: 80px;
+    background: /*#00008B*/#191970;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 16px;
+    position: fixed;
 }
 
 .logotipo {
@@ -21,12 +24,6 @@ header {
     gap: 7px;
 }
 
-nav {
-    width: 500px;
-    height: 45px;
-    background: #1E90FF;
-}
-
 .logotipo img {
     width: 50px;
     height: 40px;
@@ -35,6 +32,35 @@ nav {
 .logotipo h1 {
     margin: 0;
     color: #ddd;
-    font-size: 20px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+}
+
+.logotipo h1 span {
+    color: #1E90FF;
+}
+
+body > header nav {
+    color: #ddd;
+}
+
+nav ul {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+    font-weight: 600;
+    margin: 0 20px 0 0;
+}
+
+nav ul li {
+    cursor: pointer;
+}
+
+main {
+    background: #565656;
+    min-height: 790px;
+}
+
+footer {
+    background: #191970;
+    height: 200px;
 }
