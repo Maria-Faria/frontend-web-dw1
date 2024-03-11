@@ -33,3 +33,8 @@ git commit -m "Mensagem do commit"
 # Publicar todos commits (Mandar para o repositório na web)
 git push
 ```
+
+Clonar um repositório
+```
+git clone [url do git]
+```
