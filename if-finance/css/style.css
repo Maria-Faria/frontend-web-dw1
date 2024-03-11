@@ -3,6 +3,7 @@ html, body {
     padding: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background: #2c2c2c;
+    color: #ddd;
 }
 
 body > header {
@@ -57,10 +58,13 @@ nav ul li {
 
 main {
     background: #565656;
-    min-height: 790px;
+    min-height: calc(100vh - 200px); /*desconta a altura do footer*/
 }
 
 footer {
     background: #191970;
     height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
