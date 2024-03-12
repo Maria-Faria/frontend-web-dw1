@@ -72,6 +72,7 @@ body > footer {
     display: flex;
     align-items: center;
     margin: 100px 0 0 10px;
+    gap: 16px;
 }
 
 .card-ticker {
