@@ -2,19 +2,39 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background: #2c2c2c;
+    background: #5F9EA0;
     color: #ddd;
 }
 
 body > header {
     width: calc(100% - 32px); /*corrigir problema do padding vazando*/
     height: 80px;
-    background: /*#00008B*/#191970;
+    background: /*#00008B*/#0055ff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 16px;
     position: fixed;
+}
+
+body > header > nav a {
+    color: #ddd;
+    text-decoration: none;
+    padding: 0 0 8px 0;
+}
+
+body > header > nav a:visited {
+    color: #9a9a9a;
+}
+
+body > header > nav a:hover {
+    color: #00008B;
+    border-bottom: #ddd 4px solid;
+}
+
+body > header > nav a.active {
+    color: #00008bb6;
+    border-bottom: #ddd 4px solid;
 }
 
 .logotipo {
@@ -26,8 +46,8 @@ body > header {
 }
 
 .logotipo img {
-    width: 50px;
-    height: 40px;
+    width: 70px;
+    height: 60px;
 }
 
 .logotipo h1 {
@@ -37,7 +57,7 @@ body > header {
 }
 
 .logotipo h1 span {
-    color: #1E90FF;
+    color: #00008B;
 }
 
 nav ul {
@@ -53,13 +73,13 @@ nav ul li {
 }
 
 body > main {
-    background: #565656;
+    background: #778899;
     min-height: calc(100vh - 200px); /*desconta a altura do footer*/
     padding: 8px;
 }
 
 body > footer {
-    background: #191970;
+    background: #0055ff;
     height: 170px;
     display: flex;
     align-items: center;
@@ -70,16 +90,17 @@ body > footer {
     height: 100%;
     width: 100%;
     display: flex;
-    align-items: center;
-    margin: 100px 0 0 10px;
-    gap: 16px;
+    margin: 100px 20px 0 20px;
+    gap: 24px;
+    flex-wrap: wrap;
 }
 
 .card-ticker {
     width: 350px;
     height: 280px;
-    background: #191970;
+    background: #417de9;
     border-radius: 20px;
+    margin-bottom: 5px;
 }
 
 .card-ticker header {
@@ -112,7 +133,7 @@ body > footer {
 }
 
 .card-ticker main span:nth-child(2) {
-    background: #1E90FF;
+    background: #228B22;
     font-weight: 600;
     padding: 4px 6px;
     margin: 0 5px 0 15px;
