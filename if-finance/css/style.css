@@ -159,3 +159,22 @@ body > footer {
     font-size: 14px;
     font-weight: 500;
 }
+
+table {
+    border-collapse: collapse; /*juntar bordas*/
+}
+
+th, td {
+    border: 1px solid #ddd;
+    text-align: left;
+    color: white;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #333333;
+}
+
+tr:nth-child(odd) {
+    background-color: #1e1e1e;
+}
