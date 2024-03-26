@@ -162,6 +162,7 @@ body > footer {
 
 table {
     border-collapse: collapse; /*juntar bordas*/
+    margin: 0 20px 0 20px;
 }
 
 th, td {
@@ -177,4 +178,52 @@ tr:nth-child(even) {
 
 tr:nth-child(odd) {
     background-color: #6495ED;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.dados {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+fieldset {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    gap: 10px;
+    border-radius: 10px;
+}
+
+.enviar {
+    width: 100px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.enviar:hover {
+    background: white;
+}
+
+label {
+    color: white;
+}
+
+/*input[type=text] {
+    padding: 5px;
+}*/
+
+input, select {
+    border-radius: 5px;
+    border: none;
+    padding: 4px;
 }
