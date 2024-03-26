@@ -16,7 +16,7 @@
             }
 
             body > footer {
-                height: 205px;
+                height: 160px;
             }
         </style>
     </head>
@@ -96,19 +96,28 @@
     
                 </div>
                 
-                <div>
-                    <input type="checkbox" name="termos" id="termos" value="Sim">
-                    <label for="termos">Aceita os termos de uso do site?</label>
-    
-                    <br>
+                <div class="termos-comentarios">
+                    <div>
+                        <input type="checkbox" name="termos" id="termos" value="Sim">
+                        <label for="termos">Aceita os termos de uso do site?</label>
 
-                    <input type="checkbox" name="newsletter" id="termos" value="Sim">
-                    <label for="newsletter">Gostaria de receber propaganda? Vamos mandar de qualquer forma</label>
+                        <br>
+
+                        <input type="checkbox" name="newsletter" id="termos" value="Sim">
+                        <label for="newsletter">Gostaria de receber propaganda? Vamos mandar de qualquer forma</label>
+                    </div>
+                    
                 
+                    <br><br>
+
+                    <label for="comentario">Deixe um comentário</label>
+                    <br>
+                    <textarea name="comentario" id="comentario" rows="8" cols="80"></textarea>
+                
+                    <br>
+                    <input type="submit" value="Enviar">
+                    <br>
                 </div>
-
-                <input type="submit" value="Enviar" class="enviar">
-
             </form>
         </main>
         
