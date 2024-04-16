@@ -65,7 +65,7 @@ nav ul {
     gap: 35px;
     list-style: none;
     font-weight: 600;
-    margin: 0 20px 0 0;
+    margin: 0 40px 0 0;
 }
 
 nav ul li {
@@ -267,3 +267,69 @@ textarea {
     margin: 40px 0 0 40px;
     color: white;
 }
+
+nav > div {
+    display: none;
+}
+
+.line-menu {
+    width: 50px;
+    height: 5px;
+    background: black;
+}
+
+@media (height > 562px) {
+    body > footer {
+        height: 200px;
+    }
+}
+
+@media (width <= 1474px) {
+    #cards {
+        justify-content: center;
+        gap: 80px;
+    }
+}
+
+@media screen and (width <= 674px) {
+    nav ul {
+        display: none;
+    }
+
+    nav div {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin: 0 15px 0 0;
+    }
+
+    #cards {
+        justify-content: center;
+    }
+}
+
+@media (width <= 568px) {
+    #cards {
+        justify-content: center;
+    }
+}
+
+@media (width <= 568px) {
+    #cards {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width <= 334px) {
+    .card-ticker {
+        width: 100%;
+    }
+}
+
+@media (width <= 312px) {
+    h1 {
+        display: none;
+    }
+}
+
+
