@@ -22,4 +22,36 @@ var2 = 34.5; //Float
 var2 = true; //boolean
 var2 = [12, 54, 34]; //array
 var2 = {nome: "Maria", idade: 20}; //objeto
+
 console.log(var2);
+
+//estruturas condicionais
+if(nome == "Maria") {
+
+
+}else {
+
+}
+
+if(nome == "Maria") {
+
+
+}else if(nome == "Pedro") {
+
+
+}else if(nome == "Tiago") {
+
+
+}else if(nome == "Camila") {
+
+
+}else {
+
+
+}
+
+//estruturas de repetição
+
+for(let i = 0; i < 10; i++) {
+    
+}
