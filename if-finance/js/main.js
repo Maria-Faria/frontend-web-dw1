@@ -53,5 +53,50 @@ if(nome == "Maria") {
 //estruturas de repetição
 
 for(let i = 0; i < 10; i++) {
-    
+
 }
+
+const valor1 = 10;
+const valor2 = "10";
+
+if(valor1 === valor2) {
+
+}
+
+//Condição ternária
+const nomeCompleto = true;
+const meuNome = nomeCompleto ? "Maria Eduarda" : "Maria"; //condicao ? T : F
+
+/*function soma (valor1, valor2) {
+    return valor1 + valor2;
+}*/
+
+const soma = (valor1, valor2) => {
+    return valor1 + valor2;
+}
+
+/*const soma = function (valor1, valor2) {
+    return valor1 + valor2;
+}*/
+
+const mostrar = 'idade';
+
+const user = {
+    nome: "Maria",
+    idade: 20,
+    email: "maria.eduarda@gmail.com",
+    endereco: {
+        rua: "Av. Bahia",
+        numero: 222,
+        bairro: "Indaiá"
+    },
+    soma: soma,
+    consoles: ['PS5', 'Switch', {teste: 10, valor: 50}]
+};
+
+console.log(user['email']); //user.email
+console.log(user.endereco.bairro);
+
+console.log(user.soma(3, 4));
+console.log(user.consoles[2].valor);
+console.log(user[mostrar]);
