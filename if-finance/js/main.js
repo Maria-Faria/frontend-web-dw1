@@ -123,32 +123,84 @@ console.log(user);
 
 console.log(newUser);*/
 
-function addCard() {
+const allStocks = [
+    {
+        bolsa: "NASDAQ",
+        codigo: "APPL",
+        empresa: "Apple Inc",
+        valor: 25080,
+        variacao: 0.35,
+        nAcoes: 40
+    },
+
+    {
+        bolsa: "NASDAQ",
+        codigo: "MSFT",
+        empresa: "Microsoft Corp",
+        valor: 50234,
+        variacao: -1.5,
+        nAcoes: 20
+    },
+
+    {
+        bolsa: "NASDAQ",
+        codigo: "META",
+        empresa: "Meta Platforms Inc",
+        valor: 43262,
+        variacao: 2.3,
+        nAcoes: 5
+    }
+];
+
+console.log(allStocks);
+
+function addCard(stock) {
     const listaCards = document.querySelector('#cards');
     listaCards.innerHTML = listaCards.innerHTML + `
-    <div class="card-ticker">
+        <div class="card-ticker">
 
-                    <header>
-                        <h2><span>NASDAQ:</span> AAPL</h2>
-                        <h1>Apple Inc</h1>
-                    </header>
+            <header>
+                <h2><span>${stock.bolsa}:</span> ${stock.codigo}</h2>
+                <h1>${stock.empresa}</h1>
+            </header>
 
-                    <main>
-                        <p>R$ 250,80</p>
-                        <span>▲ 0,35%</span><span> R$0,60</span>
-                    </main>
+            <main>
+                <p>R$ ${realFormat((+stock.valor/100))}</p>
 
-                    <footer>
-                        <div>
-                            <p>40</p>
-                            <span>Ações</span>
-                        </div>
+                <span ${stock.variacao < 0 ? 'style="background: #FF0000;"' : ''}>${stock.variacao < 0 ? '▼' : '▲'} ${stock.variacao}%</span>
+                
+                <span> R$ ${realFormat((+stock.valor / 100) * (stock.variacao / 100))}</span>
+            </main>
 
-                        <div>
-                            <p>R$ 34853,45</p>
-                            <span>Posição</span>
-                        </div>
-                    </footer>
+            <footer>
+                <div>
+                    <p>${stock.nAcoes}</p>
+                    <span>Ações</span>
+                </div>
 
-                </div>`
+                <div>
+                    <p>R$ ${realFormat(stock.nAcoes * (+stock.valor / 100))}</p>
+                    <span>Posição</span>
+                </div>
+            </footer>
+
+        </div>`
 }
+
+function realFormat(valor) {
+    return valor.toFixed(2).toString().replace('.', ',');
+}
+
+function loadCards() {
+    /*for(let i = 0; i < allStocks.length; i++) {
+        addCard(allStocks[i]);
+    }*/
+
+    allStocks.map(stock => addCard(stock));
+
+    //allStocks.forEach(stock => addCard(stock));
+
+    //allStocks.map(addCard);
+
+}
+

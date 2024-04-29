@@ -90,6 +90,7 @@ body > footer {
     height: 100%;
     width: 100%;
     display: flex;
+    justify-content: center;
     margin: 100px 20px 0 20px;
     gap: 24px;
     flex-wrap: wrap;
