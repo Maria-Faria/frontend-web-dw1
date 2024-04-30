@@ -123,6 +123,7 @@ console.log(user);
 
 console.log(newUser);*/
 
+let cont = 0;
 const allStocks = [
     {
         bolsa: "NASDAQ",
@@ -145,6 +146,24 @@ const allStocks = [
     {
         bolsa: "NASDAQ",
         codigo: "META",
+        empresa: "Meta Platforms Inc",
+        valor: 43262,
+        variacao: 2.3,
+        nAcoes: 5
+    },
+
+    {
+        bolsa: "NASDAQ",
+        codigo: "GOOGL",
+        empresa: "Alphabet Inc Class A",
+        valor: 16615,
+        variacao: -0.78,
+        nAcoes: 5
+    },
+
+    {
+        bolsa: "NASDAQ",
+        codigo: "NVIDIA",
         empresa: "Meta Platforms Inc",
         valor: 43262,
         variacao: 2.3,
@@ -187,6 +206,21 @@ function addCard(stock) {
         </div>`
 }
 
+function addTable(stock, i) {
+    const table = document.querySelector('#new-table');
+    table.innerHTML = table.innerHTML + `
+        <tr>
+            <td>${stock.bolsa}</td>
+            <td>${stock.codigo}</td>
+            <td>${stock.empresa}</td>
+            <td>${stock.valor}</td>
+            <td>${stock.variacao}</td>
+            <td>${stock.nAcoes}</td>
+            <td>R$ ${realFormat(stock.nAcoes * (+stock.valor / 100))}</td>
+        </tr>
+    `
+}
+
 function realFormat(valor) {
     return valor.toFixed(2).toString().replace('.', ',');
 }
@@ -202,5 +236,9 @@ function loadCards() {
 
     //allStocks.map(addCard);
 
+}
+
+function loadTable() {
+    allStocks.map((stock, i) => addTable(stock, i));
 }
 

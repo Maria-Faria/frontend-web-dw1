@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>IF Finance</title>
         <link rel="stylesheet" href="css/style.css">
-        <link rel="icon" href="img/money.svg">
+        <link rel="icon" href="img/money.svg"> 
 
         <style>
             body > main {
@@ -15,9 +15,11 @@
                 padding: 20px;
             }
         </style>
+
+        <script src="js/main.js"></script>
     </head>
 
-    <body>
+    <body onload="loadTable()">
         <header>
             <div class="logotipo">
                 <img src="img/money.svg" alt="Logo IF Finance">
@@ -96,6 +98,23 @@
                 <!--<tr>
                     <th>IBOVESPA</th>
                 </tr>-->
+            </table>
+
+            <br><br>
+            <table id="new-table">
+                <tr>
+                    <th colspan="7" style="text-align: center;">Ações em destaque</th>
+                </tr>
+
+                <tr>
+                    <th>Bolsa</th>
+                    <th>Código</th>
+                    <th>Empresa</th>
+                    <th>Valor</th>
+                    <th>Variação</th>
+                    <th>Número de ações</th>
+                    <th>Posição</th>
+                </tr>
             </table>
         </main>
         
