@@ -239,6 +239,10 @@ function loadCards() {
 }
 
 function loadTable() {
+    let bolsas = [];
+    allStocks.map((stock, i) => bolsas.push({'bolsa': stock.bolsa, 'index': i}))
+    
     allStocks.map((stock, i) => addTable(stock, i));
 }
+
 
