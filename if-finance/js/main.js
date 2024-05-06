@@ -173,32 +173,32 @@ const allStocks = [
 
 console.log(allStocks);
 
-function addCard(stock) {
+function addCard({bolsa, codigo, empresa, valor, variacao, nAcoes}) {
     const listaCards = document.querySelector('#cards');
     listaCards.innerHTML = listaCards.innerHTML + `
         <div class="card-ticker">
 
             <header>
-                <h2><span>${stock.bolsa}:</span> ${stock.codigo}</h2>
-                <h1>${stock.empresa}</h1>
+                <h2><span>${bolsa}:</span> ${codigo}</h2>
+                <h1>${empresa}</h1>
             </header>
 
             <main>
-                <p>R$ ${realFormat((+stock.valor/100))}</p>
+                <p>R$ ${realFormat((+valor/100))}</p>
 
-                <span ${stock.variacao < 0 ? 'style="background: #FF0000;"' : ''}>${stock.variacao < 0 ? '▼' : '▲'} ${stock.variacao}%</span>
+                <span ${variacao < 0 ? 'style="background: #FF0000;"' : ''}>${variacao < 0 ? '▼' : '▲'} ${variacao}%</span>
                 
-                <span> R$ ${realFormat((+stock.valor / 100) * (stock.variacao / 100))}</span>
+                <span> R$ ${realFormat((+valor / 100) * (variacao / 100))}</span>
             </main>
 
             <footer>
                 <div>
-                    <p>${stock.nAcoes}</p>
+                    <p>${nAcoes}</p>
                     <span>Ações</span>
                 </div>
 
                 <div>
-                    <p>R$ ${realFormat(stock.nAcoes * (+stock.valor / 100))}</p>
+                    <p>R$ ${realFormat(nAcoes * (+valor / 100))}</p>
                     <span>Posição</span>
                 </div>
             </footer>
@@ -206,9 +206,13 @@ function addCard(stock) {
         </div>`
 }
 
+// += -> table = table + ...
 function addTable(stock, i) {
     const table = document.querySelector('#new-table');
-    table.innerHTML = table.innerHTML + `
+
+    let rows = table.innerHTML;
+    
+    rows += ` 
         <tr>
             <td>${stock.bolsa}</td>
             <td>${stock.codigo}</td>
@@ -219,6 +223,8 @@ function addTable(stock, i) {
             <td>R$ ${realFormat(stock.nAcoes * (+stock.valor / 100))}</td>
         </tr>
     `
+
+    table.innerHTML = rows;
 }
 
 function realFormat(valor) {
@@ -245,4 +251,15 @@ function loadTable() {
     allStocks.map((stock, i) => addTable(stock, i));
 }
 
+const openModal = () => {
+    const modal = document.getElementById('add-card-modal');
+    modal.style.display = 'flex';
+}
 
+const closeModal = (event) => {
+    const modal = document.getElementById('add-card-modal');
+
+    if(event.target.id === 'add-card-modal') {
+        modal.style.display = 'none';
+    }
+}

@@ -24,11 +24,11 @@
 
             <nav>
                 <ul>
-                    <!--<li><button onclick="addCard(allStocks[0])">Add Card</button></li>-->
                     <li><a href="./index.html" class="active">Home</a></li>
                     <li><a href="./destaques.html">Destaques</a></li>
                     <li><a href="./quem-somos.html">Quem somos</a></li>
                     <li><a href="./contato.html">Contato</a></li>
+                    <li><button onclick="openModal()">Add Card</button></li>
                 </ul>
 
                 <div>
@@ -53,6 +53,12 @@
         <footer>
             <p>Copyright @Maria Eduarda de Faria</p>
         </footer>
+
+        <div id="add-card-modal" onclick="closeModal(event)">
+            <main>
+                <h2>Add Card Ticker</h2>
+            </main>
+        </div>
 
         <script>
             console.log('Olá Footer');
