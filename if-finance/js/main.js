@@ -173,7 +173,9 @@ const allStocks = [
 
 console.log(allStocks);
 
-function addCard({bolsa, codigo, empresa, valor, variacao, nAcoes}) {
+function addCard(stock) {
+    const {bolsa, codigo, empresa, valor, variacao, nAcoes} = stock;
+
     const listaCards = document.querySelector('#cards');
     listaCards.innerHTML = listaCards.innerHTML + `
         <div class="card-ticker">
@@ -267,17 +269,24 @@ const closeModal = (event, id) => {
 const createCard = (event) => {
     event.preventDefault();
 
-    const {bolsa, codigo, empresa, valor, variacao, nAcoes} = event.target.elements
+    // const {bolsa, codigo, empresa, valor, variacao, nAcoes} = event.target.elements
 
-    addCard(
-        {
-            bolsa: bolsa.value, 
-            codigo: codigo.value, 
-            empresa: empresa.value, 
-            valor: valor.value, 
-            variacao: variacao.value, 
-            nAcoes: nAcoes.value
-        })
+    // addCard(
+    //     {
+    //         bolsa: bolsa.value, 
+    //         codigo: codigo.value, 
+    //         empresa: empresa.value, 
+    //         valor: valor.value, 
+    //         variacao: variacao.value, 
+    //         nAcoes: nAcoes.value
+    //     })
+
+    const formData = new FormData(event.target);
+    const stock = Object.fromEntries(formData);
+
+    console.log(stock)
+
+    addCard(stock);
 
     event.target.reset();
 
