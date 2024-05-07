@@ -57,6 +57,28 @@
         <div id="add-card-modal" onclick="closeModal(event)">
             <main>
                 <h2>Add Card Ticker</h2>
+
+                <form onsubmit="createCard(event)">
+                    <label for="bolsa">Bolsa:</label>
+                    <input type="text" id="bolsa">
+
+                    <label for="codigo">Código:</label>
+                    <input type="text" id="codigo">
+
+                    <label for="empresa">Empresa:</label>
+                    <input type="text" id="empresa">
+
+                    <label for="valor">Valor:</label>
+                    <input type="text" id="valor">
+
+                    <label for="variacao">Variação:</label>
+                    <input type="text" id="variacao">
+
+                    <label for="nAcoes">Número de ações:</label>
+                    <input type="text" id="nAcoes">
+
+                    <button>Add Card</button>
+                </form>
             </main>
         </div>
 
