@@ -267,7 +267,7 @@ const closeModal = (event, id) => {
 }
 
 const createCard = (event) => {
-    event.preventDefault();
+    event.preventDefault(); //previne o envio através do action
 
     // const {bolsa, codigo, empresa, valor, variacao, nAcoes} = event.target.elements
 
@@ -291,4 +291,18 @@ const createCard = (event) => {
     event.target.reset();
 
     closeModal(null, 'add-card-modal');
+}
+
+//async function testAPI() {
+    
+//}
+
+const testAPI = async () => {
+    const response = await fetch('https://cat-fact.herokuapp.com/facts');
+    console.log(response);
+    
+    const result = await response.json();
+    console.log(result[0].text);
+
+    result.map(item => console.log(item.text))
 }
