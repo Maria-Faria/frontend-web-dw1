@@ -124,7 +124,7 @@ console.log(user);
 console.log(newUser);*/
 
 let cont = 0;
-const token = 'cp1aub9r01qu1k1i3b10cp1aub9r01qu1k1i3b1g'
+//const token = 
 const allStocks = [
     {
         bolsa: "NASDAQ",
