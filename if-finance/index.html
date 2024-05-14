@@ -28,8 +28,8 @@
                     <li><a href="./destaques.html">Destaques</a></li>
                     <li><a href="./quem-somos.html">Quem somos</a></li>
                     <li><a href="./contato.html">Contato</a></li>
-                    <li><button onclick="openModal()">Add Card</button></li>
-                    <li><button onclick="testAPI()">Test API</button></li>
+                    <li><button onclick="openModal('add-form-modal')">Add Card</button></li>
+                    <li><button onclick="openModal('add-api-modal')">Test API</button></li>
 
                 </ul>
 
@@ -56,7 +56,7 @@
             <p>Copyright @Maria Eduarda de Faria</p>
         </footer>
 
-        <div id="add-card-modal" onclick="closeModal(event)">
+        <div id="add-form-modal" class="modal" onclick="closeModal(event)">
             <main>
                 <h2>Add Card Ticker</h2>
 
@@ -75,6 +75,22 @@
 
                     <label for="variacao">Variação:</label>
                     <input type="text" id="variacao" name="variacao">
+
+                    <label for="nAcoes">Número de ações:</label>
+                    <input type="text" id="nAcoes" name="nAcoes">
+
+                    <button>Add Card</button>
+                </form>
+            </main>
+        </div>
+
+        <div id="add-api-modal" class="modal" onclick="closeModal(event)">
+            <main>
+                <h2>Add API Ticker</h2>
+
+                <form onsubmit="createAPICard(event)">
+                    <label for="codigo">Código:</label>
+                    <input type="text" id="codigo" name="codigo">
 
                     <label for="nAcoes">Número de ações:</label>
                     <input type="text" id="nAcoes" name="nAcoes">

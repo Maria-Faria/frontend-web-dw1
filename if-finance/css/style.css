@@ -289,7 +289,7 @@ button {
     cursor: pointer;
 }
 
-#add-card-modal {
+.modal {
     position: absolute;
     background: #0000007c;
     top: 0;
@@ -301,7 +301,7 @@ button {
     align-items: center;
 }
 
-#add-card-modal main {
+.modal main {
     width: 500px;
     height: 600px;
     background: #fff;
@@ -310,30 +310,36 @@ button {
     color: #000;
 }
 
-#add-card-modal main form {
+.modal main form {
     margin: 25px 0 0 20px;
     align-items: flex-start;
 }
 
-#add-card-modal main form input {
+.modal main form input {
    width: 450px;
 }
 
-#add-card-modal main form label {
+.modal main form label {
     color: #000;
 }
 
-#add-card-modal main form button {
+.modal main form button {
     align-self: center;
     background: #228B22;
     color: white;
 }
+
+#add-api-modal main{
+   height: 300px;
+}
+
 
 @media (height > 562px) {
     body > footer {
         height: 170px;
     }
 }
+
 
 @media (width <= 1474px) {
     #cards {

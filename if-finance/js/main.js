@@ -124,6 +124,7 @@ console.log(user);
 console.log(newUser);*/
 
 let cont = 0;
+const token = 'cp1aub9r01qu1k1i3b10cp1aub9r01qu1k1i3b1g'
 const allStocks = [
     {
         bolsa: "NASDAQ",
@@ -253,17 +254,22 @@ function loadTable() {
     allStocks.map((stock, i) => addTable(stock, i));
 }
 
-const openModal = () => {
-    const modal = document.getElementById('add-card-modal');
+const openModal = (idModal) => {
+    const modal = document.getElementById(idModal);
     modal.style.display = 'flex';
 }
 
 const closeModal = (event, id) => {
-    const modal = document.getElementById('add-card-modal');
-
-    if(event?.target?.id === 'add-card-modal' || id === 'add-card-modal') {
+    if(id) {
+        const modal = document.getElementById(id);
         modal.style.display = 'none';
+        return
     }
+
+    if(event?.target?.className === 'modal'){
+        const modal = document.getElementById(event.target.id);
+        modal.style.display = 'none';
+        return    }
 }
 
 const createCard = (event) => {
@@ -298,11 +304,31 @@ const createCard = (event) => {
 //}
 
 const testAPI = async () => {
-    const response = await fetch('https://cat-fact.herokuapp.com/facts');
-    console.log(response);
     
-    const result = await response.json();
-    console.log(result[0].text);
+}
 
-    result.map(item => console.log(item.text))
+const createAPICard = async (event) => {
+    event.preventDefault(); //previne o envio através do action
+    const {codigo, nAcoes} = event.target.elements
+
+    //cp1aub9r01qu1k1i3b10cp1aub9r01qu1k1i3b1g
+    const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${codigo.value}&token=${token}`);
+    const result = await response.json();
+
+
+    const response2 = await fetch(`https://finnhub.io/api/v1/stock/profile2?symbol=${codigo.value}&token=${token}`);
+    const profile = await response2.json();
+
+    addCard ({
+        bolsa: profile.exchange.split(' ')[0],
+        codigo: codigo.value,
+        empresa: profile.name,
+        valor: result.c * 100,
+        variacao: result.d,
+        nAcoes: nAcoes.value
+    })
+
+    event.target.reset();
+
+    closeModal(null, 'add-api-modal');
 }
