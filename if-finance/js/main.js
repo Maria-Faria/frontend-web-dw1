@@ -124,7 +124,6 @@ console.log(user);
 console.log(newUser);*/
 
 let cont = 0;
-//const token = 
 const allStocks = [
     {
         bolsa: "NASDAQ",
@@ -172,15 +171,57 @@ const allStocks = [
     }
 ];
 
-console.log(allStocks);
-
 function addCard(stock) {
     const {bolsa, codigo, empresa, valor, variacao, nAcoes} = stock;
 
     const listaCards = document.querySelector('#cards');
     listaCards.innerHTML = listaCards.innerHTML + `
-        <div class="card-ticker">
+        <div class="card-ticker" id="${codigo}" onmouseenter="cardEnter(event)" onmouseleave="cardLeave(event)">
 
+            <header>
+                <h2><span>${bolsa}:</span> ${codigo}</h2>
+                <h1>${empresa}</h1>
+            </header>
+
+            <main>
+                <p data-valor="${valor}">R$ ${realFormat((+valor/100))}</p>
+
+                <span data-variacao="${variacao}" ${variacao < 0 ? 'style="background: #FF0000;' : ''}">${variacao < 0 ? '▼' : '▲'} ${variacao}%</span>
+                
+                <span> R$ ${realFormat((+valor / 100) * (variacao / 100))}</span>
+            </main>
+
+            <footer>
+                <div>
+                    <p>${nAcoes}</p>
+                    <span>Ações</span>
+                </div>
+
+                <div>
+                    <p>R$ ${realFormat(nAcoes * (+valor / 100))}</p>
+                    <span>Posição</span>
+                </div>
+            </footer>
+
+            <div class="card-menu">
+                <span>Editar</span>
+                <span onclick="removeCard(event)">Excluir</span>
+            </div>
+        </div>`
+
+    const allEdit = listaCards.querySelectorAll('.card-ticker .card-menu span:first-child');
+
+    allEdit.forEach(edit => {
+        edit.addEventListener('click', openEditModal);
+    })
+}
+
+function updateCard(stock) {
+    const {bolsa, codigo, empresa, valor, variacao, nAcoes} = stock;
+
+    const card = document.querySelector(`#${codigo}`);
+
+    card.innerHTML =  `
             <header>
                 <h2><span>${bolsa}:</span> ${codigo}</h2>
                 <h1>${empresa}</h1>
@@ -205,8 +246,7 @@ function addCard(stock) {
                     <span>Posição</span>
                 </div>
             </footer>
-
-        </div>`
+        `
 }
 
 // += -> table = table + ...
@@ -311,24 +351,89 @@ const createAPICard = async (event) => {
     event.preventDefault(); //previne o envio através do action
     const {codigo, nAcoes} = event.target.elements
 
-    //cp1aub9r01qu1k1i3b10cp1aub9r01qu1k1i3b1g
-    const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${codigo.value}&token=${token}`);
-    const result = await response.json();
+    try {
+        const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${codigo.value}&token=${token}`);
+        const result = await response.json();
+        console.log('Result: ', result)
+    
+        const response2 = await fetch(`https://finnhub.io/api/v1/stock/profile2?symbol=${codigo.value}&token=${token}`);
+        const profile = await response2.json();
+        console.log('Profile: ', profile)
+
+        if(!response.ok && !response2.ok) {
+            alert('Erro ao consultar ação!');
+            return 
+        }
+
+        if(profile?.exchange === undefined || result?.d === null) {
+            alert('Ação não encontrada!');
+            return
+        }
+
+        const stock = {
+            bolsa: profile.exchange.split(' ')[0],
+            codigo: codigo.value,
+            empresa: profile?.name || '',
+            valor: result.c * 100,
+            variacao: result.d,
+            nAcoes: nAcoes.value
+        };
+
+        const card = document.getElementById(codigo.value);
+        
+        if(card) {
+            updateCard(stock);
+
+        }else {
+            addCard(stock);
+        }
 
 
-    const response2 = await fetch(`https://finnhub.io/api/v1/stock/profile2?symbol=${codigo.value}&token=${token}`);
-    const profile = await response2.json();
+    } catch (error) {
+        alert('Erro ao consultar ação!')
+        console.log('ERROR: ', error);
+    }
 
-    addCard ({
-        bolsa: profile.exchange.split(' ')[0],
-        codigo: codigo.value,
-        empresa: profile.name,
-        valor: result.c * 100,
-        variacao: result.d,
-        nAcoes: nAcoes.value
-    })
-
+        
     event.target.reset();
-
     closeModal(null, 'add-api-modal');
+    //cp1aub9r01qu1k1i3b10cp1aub9r01qu1k1i3b1g
+}
+
+const cardEnter = (event) => {
+    const cardMenu = event.target.querySelector('.card-menu');
+    cardMenu.style.display = 'flex';
+}
+
+const cardLeave = (event) => {
+    const cardMenu = event.target.querySelector('.card-menu');
+    cardMenu.style.display = 'none';
+}
+
+const removeCard = (event) => {
+    event.target.closest('.card-ticker').remove();
+}
+
+const openEditModal = (event) => {
+    const card = event.target.closest('.card-ticker');
+
+    const inputBolsa = document.getElementById('e-bolsa');
+    inputBolsa.value = card.querySelector('header h2 span').innerText.replace(':', '');
+
+    const inputCodigo = document.getElementById('e-codigo');
+    inputCodigo.value = card.querySelector('header h2').innerText.split(': ')[1];
+
+    const inputEmpresa = document.getElementById('e-empresa');
+    inputEmpresa.value = card.querySelector('header h1').innerText;
+
+    const inputValor = document.getElementById('e-valor');
+    inputValor.value = card.querySelector('main p').dataset.valor;
+
+    const inputVariacao = document.getElementById('e-variacao');
+    inputVariacao.value = card.querySelector('main > span').dataset.variacao
+
+    const inputNAcoes = document.getElementById('e-nAcoes');
+    inputNAcoes.value = card.querySelector('footer p');
+
+    openModal('edit-form-modal')
 }

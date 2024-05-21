@@ -103,6 +103,27 @@ body > footer {
     background: #417de9;
     border-radius: 20px;
     margin-bottom: 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    position: relative;
+}
+
+.card-menu {
+    display: none;
+    position: absolute;
+    background: #000000f0;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    gap: 10px;
+}
+
+.card-menu span {
+    cursor: pointer;
+    padding: 20px;
 }
 
 .card-ticker header {
@@ -123,10 +144,6 @@ body > footer {
 .card-ticker header h1 {
     margin: 15px 15px 0 0;
     font-size: 14px;
-}
-
-.card-ticker {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .card-ticker main p{
