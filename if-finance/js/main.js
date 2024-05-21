@@ -433,7 +433,7 @@ const openEditModal = (event) => {
     inputVariacao.value = card.querySelector('main > span').dataset.variacao
 
     const inputNAcoes = document.getElementById('e-nAcoes');
-    inputNAcoes.value = card.querySelector('footer p');
+    inputNAcoes.value = card.querySelector('footer div p').innerText;
 
     openModal('edit-form-modal')
 }
